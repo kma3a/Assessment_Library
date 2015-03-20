@@ -13,3 +13,7 @@ Book.prototype.changeCheckedIn = function() {
 		this.isCheckedIn = true;
 	}
 }
+
+function Library() {
+	this.bookInventory = [];
+}
