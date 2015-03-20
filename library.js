@@ -114,6 +114,9 @@ var navagation = {
 			var newBook = navagation.createBook();
 			navagation.inventory.addBook(newBook);
 			console.log("you have added " + newBook.shortViewBook());
+		},
+		"2": function() {
+			navagation.inventory.viewAllBooks();
 		}
 	}
 }
@@ -135,4 +138,4 @@ var navagation = {
 //console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
 //console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 //navagation.inventory.viewAllBooks();
-navagation.menu["1"]();
+navagation.menu["2"]();
