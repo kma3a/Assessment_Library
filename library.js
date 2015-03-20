@@ -87,9 +87,12 @@ var navagation = {
 		return sget(message).trim().toUpperCase();
 	},
 	createBook: function() {
-		var title = navagation.checkInput("What is the title of the book?");
+		var title = navagation.checkInputString("What is the title of the book?");
+		var author = navagation.checkInputString("What is the author of the book?");
+		var genre = navagation.checkInputString("What is the genre of the book?");
+
 	},
-	checkInput: function(message) {
+	checkInputString: function(message) {
 		var userInput = navagation.getInput(message)
 		if (isNaN(userInput) && userInput !== ""){
 			return userInput;
@@ -102,7 +105,7 @@ var navagation = {
 			var newBook = navagation.createBook();
 			navagation.inventory.addBook(newBook);
 			console.log("You have added " + newBook.shortViewBook());
-		}
+
 	}
 }
 
