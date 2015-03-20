@@ -53,7 +53,7 @@ Library.prototype.getByGenre = function(searchGenre) {
 	return genreList;
 }
 
-Library.prototype.searchBytitle = function(searchTitle) {
+Library.prototype.searchByTitle = function(searchTitle) {
 	var titleList = [];
 	this.bookInventory.forEach(function(book) {
 		if (book.title === searchTitle) {
@@ -120,6 +120,16 @@ var navagation = {
 			navagation.startNavagation();
 		}
 	},
+	chooseBook: function(list) {
+		var userInput = this.getInput("Choose a book by number or menu will go back to the menu.");
+		if (!isNaN(userInput) && list[userInput-1] !== undefined) {
+			this.bookMenu(list[userInput-1]);
+		} else if (userInput === "MENU") {
+			this.startNavagation();
+		} else {
+			this.chooseBook(list)
+		}
+	},
 	menu: {
 		"1": function() {
 			var newBook = navagation.createBook();
@@ -131,15 +141,18 @@ var navagation = {
 		},
 		"3": function() {
 			var genre = navagation.checkInputString("What genre book are you searching for?");;
-			var genreList = navagation.inventory.getByGenre(genre);
+			var list = navagation.inventory.getByGenre(genre);
+			navagation.chooseBook(list);
 		},
 		"4": function() {
-			var title  = navagation.checkInputString("What title of the  book are you searching for?");;
+			var title  = navagation.checkInputString("What title of the  book are you searching for?");
 			var list = navagation.inventory.searchByTitle(title);
+			navagation.chooseBook(list);
 		},
 		"5": function() {
 			var author  = navagation.checkInputString("What author of the book are you searching for?");;
 			var list = navagation.inventory.searchByAuthor(author);
+			navagation.chooseBook(list);
 		}
 	},
 	startNavagation: function() {
