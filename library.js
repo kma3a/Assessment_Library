@@ -1,3 +1,5 @@
+var sget = require('sget');
+
 function Book(title, author, genre, length){
 	this.title = title;
 	this.author = author;
