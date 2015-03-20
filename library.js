@@ -109,6 +109,17 @@ var navagation = {
 			return this.checkInputNumber(message);
 		}
 	},
+	bookOptions: {
+		"1": function(currentBook) {
+			currentBook.changeCheckedIn();
+		},
+		"2": function(currentBook) {
+			navagation.inventory.removeBook(currentBook);
+		},
+		"3": function() {
+			navagation.startNavagation();
+		}
+	},
 	menu: {
 		"1": function() {
 			var newBook = navagation.createBook();
