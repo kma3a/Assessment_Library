@@ -82,6 +82,7 @@ Library.prototype.viewBookList = function(bookArray) {
 }
 
 var navagation = {
+	inventory: new Library(),
 	getInput: function(message) {
 		return sget(message).trim().toUpperCase();
 	}
@@ -103,4 +104,4 @@ var navagation = {
 //console.log(myLibrary.searchBytitle("Hitchhiker's Guide to The Galaxy").length === 1);
 //console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
 //console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
-
+//navagation.inventory.viewAllBooks();
