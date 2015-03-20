@@ -120,6 +120,15 @@ var navagation = {
 			navagation.startNavagation();
 		}
 	},
+	bookMenu:function(currentBook) {
+		console.log("1- check-out or check-in book\n2- remove book\n3- return to menu");
+		var userInputNumber = checkInputNumber("What would you like to do?);
+		if (bookOptions[userInputNumber]){
+			bookOptions[userInputNumber](currentBook);
+		} else { 
+			this.bookMenu();
+		}
+	},
 	chooseBook: function(list) {
 		var userInput = this.getInput("Choose a book by number or menu will go back to the menu.");
 		if (!isNaN(userInput) && list[userInput-1] !== undefined) {
