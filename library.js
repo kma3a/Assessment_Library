@@ -35,6 +35,13 @@ Library.prototype.removeBook = function(book) {
 	this.bookInventory.splice(bookIndex,1);
 }
 
+Library.prototype.viewAllBooks = function() {
+	console.log("The Books in this Library:");
+	this.bookInventory.forEach(function(book, index) {
+		console.log((index+1) + ". " + book.shortViewBook());
+	})
+}
+
 var myLibrary = new Library;
 var hello = new Book("Hitchhiker's Guide to The Galaxy", "Douglas Adams", "Science Fiction", 42);
 var anotherBook = new Book("Ella Enchanted", "Some Author", "Fantasy", 30);
@@ -45,4 +52,5 @@ myLibrary.removeBook(anotherBook);
 console.log(myLibrary.bookInventory.length === 1);
 console.log(anotherBook.displayBook());
 console.log(anotherBook.shortViewBook());
+myLibrary.viewAllBooks();
 
