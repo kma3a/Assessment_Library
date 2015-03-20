@@ -47,6 +47,7 @@ Library.prototype.getByGenre = function(searchGenre) {
 			genreList.push(book);
 		}
 	});
+	this.viewBookList(genreList);
 	return genreList;
 }
 
@@ -57,6 +58,7 @@ Library.prototype.searchBytitle = function(searchTitle) {
 			titleList.push(book);
 		}
 	});
+	this.viewBookList(titleList);
 	return titleList;
 }
 
@@ -67,6 +69,7 @@ Library.prototype.searchByAuthor = function(searchAuthor) {
 			authorList.push(book);
 		}
 	});
+	this.viewBookList(authorList);
 	return authorList;
 }
 
@@ -90,5 +93,6 @@ console.log(anotherBook.shortViewBook());
 myLibrary.viewAllBooks();
 console.log(myLibrary.getByGenre("Science Fiction").length === 1);
 console.log(myLibrary.searchBytitle("Hitchhiker's Guide to The Galaxy").length === 1);
+console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
 console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 
