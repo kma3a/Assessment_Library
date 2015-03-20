@@ -122,6 +122,11 @@ var navagation = {
 			var genre = navagation.checkInputString("What genre book are you searching for?");;
 			var genreList = navagation.inventory.getByGenre(genre);
 		}
+		"4": function() {
+			var title  = navagation.checkInputString("What titlee book are you searching for?");;
+			var list = navagation.inventory.searchByTitle(title);
+		}
+
 	}
 }
 
