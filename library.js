@@ -39,7 +39,7 @@ Library.prototype.viewAllBooks = function() {
 	console.log("The Books in this Library:");
 	this.bookInventory.forEach(function(book, index) {
 		console.log((index+1) + ". " + book.shortViewBook());
-	})
+	});
 }
 
 Library.prototype.getByGenre = function(searchGenre) {
@@ -48,8 +48,14 @@ Library.prototype.getByGenre = function(searchGenre) {
 		if (book.genre === searchGenre) {
 			genreList.push(book);
 		}
-	})
+	});
 	return genreList;
+}
+
+Library.prototype.viewBookList = function(bookArray) {
+	bookArray.forEach(function(book, index) {
+		console.log((index+1) + ". " + book.shortViewBook());
+	});
 }
 
 
