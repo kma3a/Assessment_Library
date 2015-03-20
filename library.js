@@ -21,3 +21,8 @@ function Library() {
 Library.prototype.addBook = function(book) {
 	this.bookInventory.push(book);
 }
+
+Library.prototype.removeBook = function(book) {
+	var bookIndex = this.bookInventory.indexOf(book);
+	this.bookInventory.splice(bookIndex,1);
+}
