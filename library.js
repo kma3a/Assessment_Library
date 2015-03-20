@@ -130,6 +130,18 @@ var navagation = {
 			var author  = navagation.checkInputString("What author of the book are you searching for?");;
 			var list = navagation.inventory.searchByAuthor(author);
 		}
+	},
+	startNavagation: function() {
+		console.log("1- create and add Book\n2- view all books\n3- view by genre\n4- search by title\n5-search by author\nexit- exit the program");
+		var getInput = this.getInput("What would you like to do?");
+		if (this.menu[getInput]){
+			this.menu[getInput]();
+			this.startNavagation();
+		} else if (getInput === 'EXIT') {
+			console.log("Have a nice day!");
+		} else {
+			this.startNavagation();
+		}
 	}
 }
 
@@ -150,4 +162,5 @@ var navagation = {
 //console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
 //console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 //navagation.inventory.viewAllBooks();
-navagation.menu["5"]();
+//navagation.menu["5"]()
+navagation.startNavagation();
