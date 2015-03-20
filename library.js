@@ -17,3 +17,7 @@ Book.prototype.changeCheckedIn = function() {
 function Library() {
 	this.bookInventory = [];
 }
+
+Library.prototype.addBook = function(book) {
+	this.bookInventory.push(book);
+}
