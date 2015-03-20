@@ -50,6 +50,16 @@ Library.prototype.getByGenre = function(searchGenre) {
 	return genreList;
 }
 
+Library.prototype.searchBytitle = function(searchTitle) {
+	var titleList = [];
+	this.bookInventory.forEach(function(book) {
+		if (book.title === searchTitle) {
+			titleList.push(book);
+		}
+	});
+	return titleList;
+}
+
 Library.prototype.viewBookList = function(bookArray) {
 	bookArray.forEach(function(book, index) {
 		console.log((index+1) + ". " + book.shortViewBook());
@@ -69,4 +79,5 @@ console.log(anotherBook.displayBook());
 console.log(anotherBook.shortViewBook());
 myLibrary.viewAllBooks();
 console.log(myLibrary.getByGenre("Science Fiction").length === 1);
+console.log(myLibrary.searchBytitle("Hitchhiker's Guide to The Galaxy").length === 1);
 
