@@ -79,20 +79,26 @@ Library.prototype.viewBookList = function(bookArray) {
 	});
 }
 
+var navagation = {
+	getInput: function(message) {
+		return sget(message).trim().toUpperCase();
+	}
+}
 
-var myLibrary = new Library;
-var hello = new Book("Hitchhiker's Guide to The Galaxy", "Douglas Adams", "Science Fiction", 42);
-var anotherBook = new Book("Ella Enchanted", "Some Author", "Fantasy", 30);
-myLibrary.addBook(hello);
-myLibrary.addBook(anotherBook);
-console.log(myLibrary.bookInventory.length === 2);
-myLibrary.removeBook(anotherBook);
-console.log(myLibrary.bookInventory.length === 1);
-console.log(anotherBook.displayBook());
-console.log(anotherBook.shortViewBook());
-myLibrary.viewAllBooks();
-console.log(myLibrary.getByGenre("Science Fiction").length === 1);
-console.log(myLibrary.searchBytitle("Hitchhiker's Guide to The Galaxy").length === 1);
-console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
-console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
+
+//var myLibrary = new Library;
+//var hello = new Book("Hitchhiker's Guide to The Galaxy", "Douglas Adams", "Science Fiction", 42);
+//var anotherBook = new Book("Ella Enchanted", "Some Author", "Fantasy", 30);
+//myLibrary.addBook(hello);
+//myLibrary.addBook(anotherBook);
+//console.log(myLibrary.bookInventory.length === 2);
+//myLibrary.removeBook(anotherBook);
+//console.log(myLibrary.bookInventory.length === 1);
+//console.log(anotherBook.displayBook());
+//console.log(anotherBook.shortViewBook());
+//myLibrary.viewAllBooks();
+//console.log(myLibrary.getByGenre("Science Fiction").length === 1);
+//console.log(myLibrary.searchBytitle("Hitchhiker's Guide to The Galaxy").length === 1);
+//console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
+//console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 
