@@ -42,6 +42,17 @@ Library.prototype.viewAllBooks = function() {
 	})
 }
 
+Library.prototype.getByGenre = function(searchGenre) {
+	var genreList = [];
+	this.bookInventory.forEach(function(book) {
+		if (book.genre === searchGenre) {
+			genreList.push(book);
+		}
+	})
+	return genreList;
+}
+
+
 var myLibrary = new Library;
 var hello = new Book("Hitchhiker's Guide to The Galaxy", "Douglas Adams", "Science Fiction", 42);
 var anotherBook = new Book("Ella Enchanted", "Some Author", "Fantasy", 30);
@@ -53,4 +64,5 @@ console.log(myLibrary.bookInventory.length === 1);
 console.log(anotherBook.displayBook());
 console.log(anotherBook.shortViewBook());
 myLibrary.viewAllBooks();
+console.log(myLibrary.getByGenre("Science Fiction").length === 1);
 
