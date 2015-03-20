@@ -14,6 +14,10 @@ Book.prototype.changeCheckedIn = function() {
 	}
 }
 
+Book.prototype.displayBook = function() {
+	return "Title: " + this.title + "\nAuthor: " + this.author + "\nGenre: " + this.genre + "\nLength: " + this.length + "\nChecked In: " + this.isCheckedIn;
+}
+
 function Library() {
 	this.bookInventory = [];
 }
@@ -35,4 +39,5 @@ myLibrary.addBook(anotherBook);
 console.log(myLibrary.bookInventory.length === 2);
 myLibrary.removeBook(anotherBook);
 console.log(myLibrary.bookInventory.length === 1);
+console.log(anotherBook.displayBook());
 
