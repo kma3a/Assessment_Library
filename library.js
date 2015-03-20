@@ -86,9 +86,19 @@ var navagation = {
 	getInput: function(message) {
 		return sget(message).trim().toUpperCase();
 	},
+	createBook: function() {
+		var title = navagation.checkInput(navagation.getInput("What is the title of the book?"));
+	},
+	checkInput: function(userInput) {
+		if (isNaN(userInput) && userInput !== ""){
+			return userInput;
+		} else {
+			return navagation.checkInput(navagation.getInput("What is the title of the book?"))
+		}
+	},
 	menu: {
 		"1": function() {
-			var newBook = navagation.creatBook();
+			var newBook = navagation.createBook();
 			navagation.inventory.addBook(newBook);
 			console.log("You have added " + newBook.shortViewBook());
 		}
