@@ -87,13 +87,14 @@ var navagation = {
 		return sget(message).trim().toUpperCase();
 	},
 	createBook: function() {
-		var title = navagation.checkInput(navagation.getInput("What is the title of the book?"));
+		var title = navagation.checkInput("What is the title of the book?");
 	},
-	checkInput: function(userInput) {
+	checkInput: function(message) {
+		var userInput = navagation.getInput(message)
 		if (isNaN(userInput) && userInput !== ""){
 			return userInput;
 		} else {
-			return navagation.checkInput(navagation.getInput("What is the title of the book?"))
+			return navagation.checkInput(message);
 		}
 	},
 	menu: {
