@@ -37,9 +37,7 @@ Library.prototype.removeBook = function(book) {
 
 Library.prototype.viewAllBooks = function() {
 	console.log("The Books in this Library:");
-	this.bookInventory.forEach(function(book, index) {
-		console.log((index+1) + ". " + book.shortViewBook());
-	});
+	this.viewBookList(this.bookInventory);
 }
 
 Library.prototype.getByGenre = function(searchGenre) {
