@@ -121,29 +121,31 @@ var navagation = {
 		}
 	},
 	bookMenu:function(currentBook) {
+		console.log(currentBook.displayBook());
 		console.log("1- check-out or check-in book\n2- remove book\n3- return to menu");
 		var userInputNumber = this.checkInputNumber("What would you like to do?");
 		if (this.bookOptions[userInputNumber]){
 			this.bookOptions[userInputNumber](currentBook);
+			this.startNavagation();
 		} else { 
-			this.bookMenu();
+			return this.bookMenu();
 		}
 	},
 	chooseBook: function(list) {
 		var userInput = this.getInput("Choose a book by number or menu will go back to the menu.");
 		if (!isNaN(userInput) && list[userInput-1] !== undefined) {
-			this.bookMenu(list[userInput-1]);
+			return this.bookMenu(list[userInput-1]);
 		} else if (userInput === "MENU") {
-			this.startNavagation();
+			return this.startNavagation();
 		} else {
-			this.chooseBook(list)
+			return this.chooseBook(list)
 		}
 	},
 	checkList: function(list) {
 		if (list.length !== 0) {
-			this.chooseBook(list);
+			return this.chooseBook(list);
 		} else {
-			console.log("There is nothing in the library for your search");
+			return console.log("There is nothing in the library for your search");
 		}
 	},
 	menu: {
@@ -151,9 +153,11 @@ var navagation = {
 			var newBook = navagation.createBook();
 			navagation.inventory.addBook(newBook);
 			console.log("you have added " + newBook.shortViewBook());
+			navagation.startNavagation();
 		},
 		"2": function() {
 			navagation.inventory.viewAllBooks();
+			navagation.startNavagation();
 		},
 		"3": function() {
 			var genre = navagation.checkInputString("What genre book are you searching for?");;
@@ -167,7 +171,7 @@ var navagation = {
 	
 		},
 		"5": function() {
-			var author  = navagation.checkInputString("What author of the book are you searching for?");;
+			var author  = navagation.checkInputString("What author of the book are you searching for?");
 			var list = navagation.inventory.searchByAuthor(author);
 			navagation.checkList(list);		}
 	},
@@ -176,7 +180,6 @@ var navagation = {
 		var getInput = this.getInput("What would you like to do?");
 		if (this.menu[getInput]){
 			this.menu[getInput]();
-			this.startNavagation();
 		} else if (getInput === 'EXIT') {
 			console.log("Have a nice day!");
 		} else {
@@ -187,7 +190,7 @@ var navagation = {
 
 
 //var myLibrary = new Library;
-//var hello = new Book("Hitchhiker's Guide to The Galaxy", "Douglas Adams", "Science Fiction", 42);
+var hello = new Book("Hitchhiker's Guide to The Galaxy", "Douglas Adams", "Science Fiction", 42);
 //var anotherBook = new Book("Ella Enchanted", "Some Author", "Fantasy", 30);
 //myLibrary.addBook(hello);
 //myLibrary.addBook(anotherBook);
