@@ -90,6 +90,7 @@ var navagation = {
 		var title = navagation.checkInputString("What is the title of the book?");
 		var author = navagation.checkInputString("What is the author of the book?");
 		var genre = navagation.checkInputString("What is the genre of the book?");
+		var length = navagation.checkInputNumber("What is the length of the book?");
 
 	},
 	checkInputString: function(message) {
@@ -97,7 +98,15 @@ var navagation = {
 		if (isNaN(userInput) && userInput !== ""){
 			return userInput;
 		} else {
-			return navagation.checkInput(message);
+			return navagation.checkInputString(message);
+		}
+	},
+	checkInputNumber: function(message) {
+		var userInput = navagation.getInput(message)
+		if (!isNaN(userInput) && userInput !== ""){
+			return userInput;
+		} else {
+			return navagation.checkInputNumber(message);
 		}
 	},
 	menu: {
@@ -106,6 +115,7 @@ var navagation = {
 			navagation.inventory.addBook(newBook);
 			console.log("You have added " + newBook.shortViewBook());
 
+		}
 	}
 }
 
@@ -126,4 +136,4 @@ var navagation = {
 //console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
 //console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 //navagation.inventory.viewAllBooks();
-navagation.menu["1"]();;
+navagation.menu["1"]();
