@@ -121,12 +121,15 @@ var navagation = {
 		"3": function() {
 			var genre = navagation.checkInputString("What genre book are you searching for?");;
 			var genreList = navagation.inventory.getByGenre(genre);
-		}
+		},
 		"4": function() {
-			var title  = navagation.checkInputString("What titlee book are you searching for?");;
+			var title  = navagation.checkInputString("What title of the  book are you searching for?");;
 			var list = navagation.inventory.searchByTitle(title);
+		},
+		"5": function() {
+			var author  = navagation.checkInputString("What author of the book are you searching for?");;
+			var list = navagation.inventory.searchByAuthor(author);
 		}
-
 	}
 }
 
@@ -147,4 +150,4 @@ var navagation = {
 //console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
 //console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 //navagation.inventory.viewAllBooks();
-navagation.menu["3"]();
+navagation.menu["5"]();
