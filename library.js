@@ -122,9 +122,9 @@ var navagation = {
 	},
 	bookMenu:function(currentBook) {
 		console.log("1- check-out or check-in book\n2- remove book\n3- return to menu");
-		var userInputNumber = checkInputNumber("What would you like to do?);
-		if (bookOptions[userInputNumber]){
-			bookOptions[userInputNumber](currentBook);
+		var userInputNumber = this.checkInputNumber("What would you like to do?");
+		if (this.bookOptions[userInputNumber]){
+			this.bookOptions[userInputNumber](currentBook);
 		} else { 
 			this.bookMenu();
 		}
@@ -139,6 +139,13 @@ var navagation = {
 			this.chooseBook(list)
 		}
 	},
+	checkList: function(list) {
+		if (list.length !== 0) {
+			this.chooseBook(list);
+		} else {
+			console.log("There is nothing in the library for your search");
+		}
+	},
 	menu: {
 		"1": function() {
 			var newBook = navagation.createBook();
@@ -151,18 +158,18 @@ var navagation = {
 		"3": function() {
 			var genre = navagation.checkInputString("What genre book are you searching for?");;
 			var list = navagation.inventory.getByGenre(genre);
-			navagation.chooseBook(list);
+			navagation.checkList(list);
 		},
 		"4": function() {
 			var title  = navagation.checkInputString("What title of the  book are you searching for?");
 			var list = navagation.inventory.searchByTitle(title);
-			navagation.chooseBook(list);
+			navagation.checkList(list);
+	
 		},
 		"5": function() {
 			var author  = navagation.checkInputString("What author of the book are you searching for?");;
 			var list = navagation.inventory.searchByAuthor(author);
-			navagation.chooseBook(list);
-		}
+			navagation.checkList(list);		}
 	},
 	startNavagation: function() {
 		console.log("1- create and add Book\n2- view all books\n3- view by genre\n4- search by title\n5-search by author\nexit- exit the program");
