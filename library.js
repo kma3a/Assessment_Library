@@ -33,3 +33,6 @@ var anotherBook = new Book("Ella Enchanted", "Some Author", "Fantasy", 30);
 myLibrary.addBook(hello);
 myLibrary.addBook(anotherBook);
 console.log(myLibrary.bookInventory.length === 2);
+myLibrary.removeBook(anotherBook);
+console.log(myLibrary.bookInventory.length === 1);
+
