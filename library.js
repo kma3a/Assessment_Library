@@ -85,6 +85,13 @@ var navagation = {
 	inventory: new Library(),
 	getInput: function(message) {
 		return sget(message).trim().toUpperCase();
+	},
+	menu: {
+		"1": function() {
+			var newBook = navagation.creatBook();
+			navagation.inventory.addBook(newBook);
+			console.log("You have added " + newBook.shortViewBook());
+		}
 	}
 }
 
@@ -105,3 +112,4 @@ var navagation = {
 //console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
 //console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 //navagation.inventory.viewAllBooks();
+navagation.menu["1"]();;
