@@ -60,6 +60,16 @@ Library.prototype.searchBytitle = function(searchTitle) {
 	return titleList;
 }
 
+Library.prototype.searchByAuthor = function(searchAuthor) {
+	var authorList = [];
+	this.bookInventory.forEach(function(book) {
+		if (book.author === searchAuthor) {
+			authorList.push(book);
+		}
+	});
+	return authorList;
+}
+
 Library.prototype.viewBookList = function(bookArray) {
 	bookArray.forEach(function(book, index) {
 		console.log((index+1) + ". " + book.shortViewBook());
@@ -80,4 +90,5 @@ console.log(anotherBook.shortViewBook());
 myLibrary.viewAllBooks();
 console.log(myLibrary.getByGenre("Science Fiction").length === 1);
 console.log(myLibrary.searchBytitle("Hitchhiker's Guide to The Galaxy").length === 1);
+console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 
