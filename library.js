@@ -117,6 +117,10 @@ var navagation = {
 		},
 		"2": function() {
 			navagation.inventory.viewAllBooks();
+		},
+		"3": function() {
+			var genre = navagation.checkInputString("What genre book are you searching for?");;
+			var genreList = navagation.inventory.getByGenre(genre);
 		}
 	}
 }
@@ -138,4 +142,4 @@ var navagation = {
 //console.log( "Hello" + myLibrary.searchBytitle("Something Else"));
 //console.log(myLibrary.searchByAuthor("Douglas Adams").length === 1);
 //navagation.inventory.viewAllBooks();
-navagation.menu["2"]();
+navagation.menu["3"]();
