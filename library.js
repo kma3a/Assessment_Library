@@ -87,34 +87,33 @@ var navagation = {
 		return sget(message).trim().toUpperCase();
 	},
 	createBook: function() {
-		var title = navagation.checkInputString("What is the title of the book?");
-		var author = navagation.checkInputString("What is the author of the book?");
-		var genre = navagation.checkInputString("What is the genre of the book?");
-		var length = navagation.checkInputNumber("What is the length of the book?");
-
+		var title = this.checkInputString("What is the title of the book?");
+		var author = this.checkInputString("what is the author of the book?");
+		var genre = this.checkInputString("what is the genre of the book?");
+		var length = this.checkInputNumber("what is the length of the book?");
+		return new Book(title, author, genre, length);
 	},
 	checkInputString: function(message) {
-		var userInput = navagation.getInput(message)
+		var userInput = this.getInput(message)
 		if (isNaN(userInput) && userInput !== ""){
 			return userInput;
 		} else {
-			return navagation.checkInputString(message);
+			return this.checkInputString(message);
 		}
 	},
 	checkInputNumber: function(message) {
-		var userInput = navagation.getInput(message)
+		var userInput = this.getInput(message)
 		if (!isNaN(userInput) && userInput !== ""){
 			return userInput;
 		} else {
-			return navagation.checkInputNumber(message);
+			return this.checkInputNumber(message);
 		}
 	},
 	menu: {
 		"1": function() {
 			var newBook = navagation.createBook();
 			navagation.inventory.addBook(newBook);
-			console.log("You have added " + newBook.shortViewBook());
-
+			console.log("you have added " + newBook.shortViewBook());
 		}
 	}
 }
